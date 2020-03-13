@@ -1,0 +1,21 @@
+<c3p0-config>
+    <!-- 连接名称 -->
+    <named-config name="mysql">
+        <!-- 接数据库的驱动类名 -->
+        <property name="driverClass">com.mysql.jdbc.Driver</property>
+        <!-- 连接属性 -->
+        <property name="jdbcUrl">jdbc:mysql://39.97.119.183:3306/RUNOOB</property>
+        <property name="user">root</property>
+        <property name="password">409421</property>
+        <!-- 当连接池用完时等待获取新连接的时间，超时后将抛出SQLException，单位毫秒，如设为0则无限期等待。默认为0。 -->
+        <property name="checkoutTimeout">5000</property>
+        <!-- 当连接用尽后，一次获取的连接个数 -->
+        <property name="acquireIncrement">2</property>
+        <!-- 初始连接数 -->
+        <property name="initialPoolSize">1</property>
+        <!-- 最小连接数 -->
+        <property name="minPoolSize">3</property>
+        <!-- 最大连接数 -->
+        <property name="maxPoolSize">5</property>
+    </named-config>
+</c3p0-config>
