@@ -10,9 +10,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
+/**
+ * @author lyy
+ */
 public class TestDruid {
-    // 根据配置文件里的名称创建连接池
+
+   /**
+    * 根据配置文件里的名称创建连接池
+    */
     private static DataSource source = null;
+
     static {
         Properties pros = new Properties();
         InputStream is = TestDruid.class.getClassLoader().getResourceAsStream("druid.properties");
@@ -31,6 +38,7 @@ public class TestDruid {
         // 模拟多次对数据库的查询操作
         for (int i = 0; i < 6; i++) {
             new Thread(new Runnable() {
+                @Override
                 public void run() {
                     select();
                 }

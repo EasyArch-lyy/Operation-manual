@@ -7,8 +7,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * @author lyy
+ */
 public class TestDataPool {
-    // 根据配置文件里的名称创建连接池
+
+   /**
+    * 根据配置文件里的名称创建连接池
+    */
     public static ComboPooledDataSource cpds = new ComboPooledDataSource("c3p0-config.xml");
     
     /**
@@ -18,6 +24,7 @@ public class TestDataPool {
         // 模拟多次对数据库的查询操作
         for (int i = 0; i < 6; i++) {
             new Thread(new Runnable() {
+                @Override
                 public void run() {
                     select();
                 }

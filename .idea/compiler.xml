@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="mysql" target="1.5" />
+      <module name="mysql" target="8" />
       <module name="redis" target="1.5" />
     </bytecodeTargetLevel>
   </component>
