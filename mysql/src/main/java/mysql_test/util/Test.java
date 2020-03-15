@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @author lyy
  */
 public class Test {
-    @org.junit.Test
+
 
 
    /**

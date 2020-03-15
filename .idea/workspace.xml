@@ -2,37 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6110833b-1e73-4015-a063-97464d14afaf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql/src/main/java/mysql_test/affair/Affair.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql/src/main/java/mysql_test/util/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_pool_commons_pool_1_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_2_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/redis/src/main/java/util/RedisJava.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/redis/src/main/java/util/RedisShardPoolTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/redis/src/main/java/util/redis命令集" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/redis/src/main/java/util/springboot对redis封装" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/mysql.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/mysql.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/src/main/java/mysql_test/affair/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/src/main/java/mysql_test/affair/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/src/main/java/mysql_test/engine/Linksql.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/src/main/java/mysql_test/engine/Linksql.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/src/main/java/mysql_test/page/te.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/src/main/java/mysql_test/pool/TestDataPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/src/main/java/mysql_test/pool/TestDataPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/src/main/java/mysql_test/pool/TestDruid.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/src/main/java/mysql_test/pool/TestDruid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/src/main/java/mysql_test/sqlTemplete/JDBC01.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/src/main/java/mysql_test/sqlTemplete/JDBC01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/src/main/java/mysql_test/test/JDBC02.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/src/main/java/mysql_test/test/MySQLDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/src/main/java/mysql_test/test/MySQLDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/src/main/java/项目简介" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/src/main/java/项目简介" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/target/classes/mysql_test/affair/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/target/classes/mysql_test/affair/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/target/classes/mysql_test/engine/Linksql.class" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/target/classes/mysql_test/engine/Linksql.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/target/classes/mysql_test/page/te.class" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/target/classes/mysql_test/page/te.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/target/classes/mysql_test/pool/TestDataPool$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/target/classes/mysql_test/pool/TestDataPool$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/target/classes/mysql_test/pool/TestDataPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/target/classes/mysql_test/pool/TestDataPool.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/target/classes/mysql_test/pool/TestDruid$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/target/classes/mysql_test/pool/TestDruid$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/target/classes/mysql_test/pool/TestDruid.class" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/target/classes/mysql_test/pool/TestDruid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/target/classes/mysql_test/sqlTemplete/JDBC01.class" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/target/classes/mysql_test/sqlTemplete/JDBC01.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/target/classes/mysql_test/sqlTemplete/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/target/classes/mysql_test/sqlTemplete/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/target/classes/mysql_test/test/JDBC02.class" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/target/classes/mysql_test/test/JDBC02.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/target/classes/mysql_test/test/MySQLDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/target/classes/mysql_test/test/MySQLDemo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/target/classes/mysql_test/util/JdbcUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/target/classes/mysql_test/util/JdbcUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/target/test-classes/TestUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/target/test-classes/TestUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql/target/test-classes/TestUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/target/test-classes/TestUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql/src/main/java/mysql_test/util/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/src/main/java/mysql_test/util/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/redis/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redis/redis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/redis/redis.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +60,20 @@
       <recent name="$PROJECT_DIR$/mysql" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Test.getPageCount">
+  <component name="RunManager" selected="Application.RedisJava">
+    <configuration name="RedisJava" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="util.RedisJava" />
+      <module name="redis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="mysql_test.util.Test" />
       <module name="mysql" />
@@ -94,24 +87,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestUser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TestUser" />
-      <module name="mysql" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JDBC01.selectUserByPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="mysql" />
+    <configuration name="RedisJava.KeyOperate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="redis" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="mysql_test.sqlTemplete.*" />
+          <option name="PATTERN" value="util.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="mysql_test.sqlTemplete" />
-      <option name="MAIN_CLASS_NAME" value="mysql_test.sqlTemplete.JDBC01" />
-      <option name="METHOD_NAME" value="selectUserByPage" />
+      <option name="PACKAGE_NAME" value="util" />
+      <option name="MAIN_CLASS_NAME" value="util.RedisJava" />
+      <option name="METHOD_NAME" value="KeyOperate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -151,11 +137,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RedisJava" />
+        <item itemvalue="JUnit.RedisJava.KeyOperate" />
         <item itemvalue="JUnit.Test.getPageCount" />
         <item itemvalue="JUnit.Test.base" />
         <item itemvalue="Application.Test" />
-        <item itemvalue="Application.TestUser" />
-        <item itemvalue="JUnit.JDBC01.selectUserByPage" />
       </list>
     </recent_temporary>
   </component>
@@ -186,6 +172,10 @@
       <workItem from="1584060879669" duration="6432000" />
       <workItem from="1584084413644" duration="5724000" />
       <workItem from="1584103125042" duration="6031000" />
+      <workItem from="1584149823274" duration="562000" />
+      <workItem from="1584150404268" duration="18000" />
+      <workItem from="1584182955797" duration="4586000" />
+      <workItem from="1584234471490" duration="3091000" />
     </task>
     <servers />
   </component>
@@ -197,10 +187,10 @@
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state x="508" y="201" key="#Project_Structure/0.24.1920.1056@0.24.1920.1056" timestamp="1584103420200" />
-    <state x="558" y="338" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584027445977">
+    <state x="558" y="338" width="834" height="400" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584235234039">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
-    <state x="558" y="338" key="#com.intellij.fileTypes.FileTypeChooser/0.24.1920.1056@0.24.1920.1056" timestamp="1584027445977" />
+    <state x="558" y="338" width="834" height="400" key="#com.intellij.fileTypes.FileTypeChooser/0.24.1920.1056@0.24.1920.1056" timestamp="1584235234039" />
     <state x="773" y="258" key="#com.intellij.ide.util.MemberChooser" timestamp="1584069341983">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
@@ -209,26 +199,26 @@
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state x="500" y="462" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.24.1920.1056@0.24.1920.1056" timestamp="1584027551866" />
-    <state x="679" y="299" key="FileChooserDialogImpl" timestamp="1584028122951">
+    <state x="679" y="299" key="FileChooserDialogImpl" timestamp="1584150413753">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
-    <state x="679" y="299" key="FileChooserDialogImpl/0.24.1920.1056@0.24.1920.1056" timestamp="1584028122951" />
-    <state width="1868" height="317" key="GridCell.Tab.0.bottom" timestamp="1584115770757">
+    <state x="679" y="299" key="FileChooserDialogImpl/0.24.1920.1056@0.24.1920.1056" timestamp="1584150413753" />
+    <state width="1680" height="248" key="GridCell.Tab.0.bottom" timestamp="1584192117180">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
-    <state width="1868" height="317" key="GridCell.Tab.0.bottom/0.24.1920.1056@0.24.1920.1056" timestamp="1584115770757" />
-    <state width="1868" height="317" key="GridCell.Tab.0.center" timestamp="1584115770755">
+    <state width="1680" height="248" key="GridCell.Tab.0.bottom/0.24.1920.1056@0.24.1920.1056" timestamp="1584192117180" />
+    <state width="1680" height="248" key="GridCell.Tab.0.center" timestamp="1584192117179">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
-    <state width="1868" height="317" key="GridCell.Tab.0.center/0.24.1920.1056@0.24.1920.1056" timestamp="1584115770755" />
-    <state width="1868" height="317" key="GridCell.Tab.0.left" timestamp="1584115770754">
+    <state width="1680" height="248" key="GridCell.Tab.0.center/0.24.1920.1056@0.24.1920.1056" timestamp="1584192117179" />
+    <state width="1680" height="248" key="GridCell.Tab.0.left" timestamp="1584192117179">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
-    <state width="1868" height="317" key="GridCell.Tab.0.left/0.24.1920.1056@0.24.1920.1056" timestamp="1584115770754" />
-    <state width="1868" height="317" key="GridCell.Tab.0.right" timestamp="1584115770756">
+    <state width="1680" height="248" key="GridCell.Tab.0.left/0.24.1920.1056@0.24.1920.1056" timestamp="1584192117179" />
+    <state width="1680" height="248" key="GridCell.Tab.0.right" timestamp="1584192117179">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
-    <state width="1868" height="317" key="GridCell.Tab.0.right/0.24.1920.1056@0.24.1920.1056" timestamp="1584115770756" />
+    <state width="1680" height="248" key="GridCell.Tab.0.right/0.24.1920.1056@0.24.1920.1056" timestamp="1584192117179" />
     <state width="1868" height="363" key="GridCell.Tab.1.bottom" timestamp="1584094054167">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
@@ -277,5 +267,23 @@
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state x="623" y="246" key="run.anything.popup/0.24.1920.1056@0.24.1920.1056" timestamp="1584088572603" />
+    <state x="599" y="236" width="719" height="678" key="search.everywhere.popup" timestamp="1584235552200">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state x="599" y="236" width="719" height="678" key="search.everywhere.popup/0.24.1920.1056@0.24.1920.1056" timestamp="1584235552200" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/redis/src/main/java/util/RedisJava.java</url>
+          <line>101</line>
+          <properties class="util.RedisJava" method="main">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
