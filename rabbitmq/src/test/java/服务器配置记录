@@ -1,0 +1,200 @@
+redis
+-----------------------------配置路径-----------------------------
+Redis的数据文件
+dbfilename dump.rdb
+数据文件存储路径
+dir /var/lib/redis
+
+
+-----------------------------操作命令-----------------------------
++++++++++++++ubuntu操作++++++++++++++++++++
+tar -xzvf xxx.tar.gz
+tar.gz解压命令
+ps -aux
+功能：查看进程信息
+ps -aux | grep 进程服务名
+功能:查看具体的某个进程
+ssh上传文件夹(tar包)到服务器
+scp -r nginx-1.16.1.tar.gz root@39.97.119.183:/home/lyy
+
++++++++++++++RabbitMQ++++++++++++++++++++
+安装过程
+{
+rabbitMq需要erlang语言的支持，在安装rabbitMq之前需要安装erlang
+apt-get install erlang-nox 
+erl    # 查看relang语言版本，成功执行则说明relang安装成功
+添加rabbitMQ下载地址公钥
+wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | sudo apt-key add -
+更新软件包
+apt-get update
+安装 RabbitMQ
+apt-get install rabbitmq-server  #安装成功自动启动
+}
+运行时命令
+{
+查看 RabbitMq状态
+systemctl status rabbitmq-server   #Active: active (running) 说明处于运行状态
+# service rabbitmq-server status 用service指令也可以查看，同systemctl指令
+启动、停止、重启
+service rabbitmq-server start    # 启动
+service rabbitmq-server stop     # 停止
+service rabbitmq-server restart  # 重启 
+
+默认用户guest 只允许localhost登录。
+
+1. 用户管理
+用户管理包括增加用户，删除用户，查看用户列表，修改用户密码。
+相应的命令
+(1) 新增一个用户
+rabbitmqctl  add_user  Username  Password
+(2) 删除一个用户
+rabbitmqctl  delete_user  Username
+(3) 修改用户的密码
+rabbitmqctl  change_password  Username  Newpassword
+(4) 查看当前用户列表
+rabbitmqctl  list_users
+2. 用户角色
+按照个人理解，用户角色可分为五类，超级管理员, 监控者, 策略制定者, 普通管理者以及其他。
+(1) 超级管理员(administrator)
+可登陆管理控制台(启用management plugin的情况下)，可查看所有的信息，并且可以对用户，策略(policy)进行操作。
+(2) 监控者(monitoring)
+可登陆管理控制台(启用management plugin的情况下)，同时可以查看rabbitmq节点的相关信息(进程数，内存使用情况，磁盘使用情况等)
+(3) 策略制定者(policymaker)
+可登陆管理控制台(启用management plugin的情况下), 同时可以对policy进行管理。但无法查看节点的相关信息(上图红框标识的部分)。
+与administrator的对比，administrator能看到这些内容
+(4) 普通管理者(management)
+仅可登陆管理控制台(启用management plugin的情况下)，无法看到节点信息，也无法对策略进行管理。
+(5) 其他
+无法登陆管理控制台，通常就是普通的生产者和消费者。
+了解了这些后，就可以根据需要给不同的用户设置不同的角色，以便按需管理。
+设置用户角色的命令为：
+rabbitmqctl  set_user_tags  User  Tag
+User为用户名， Tag为角色名(对应于上面的administrator，monitoring，policymaker，management，或其他自定义名称)。
+也可以给同一用户设置多个角色，例如
+rabbitmqctl  set_user_tags  hncscwc  monitoring  policymaker
+3. 用户权限
+用户权限指的是用户对exchange，queue的操作权限，包括配置权限，读写权限。配置权限会影响到exchange，queue的声明和删除。读写权限影响到从queue里取消息，向exchange发送消息以及queue和exchange的绑定(bind)操作。
+例如： 将queue绑定到某exchange上，需要具有queue的可写权限，以及exchange的可读权限；向exchange发送消息需要具有exchange的可写权限；从queue里取数据需要具有queue的可读权限。详细请参考官方文档中"How permissions work"部分。
+
+相关命令为：
+(1) 设置用户权限
+rabbitmqctl  set_permissions  -p  VHostPath  User  ConfP  WriteP  ReadP
+(2) 查看(指定hostpath)所有用户的权限信息
+rabbitmqctl  list_permissions  [-p  VHostPath]
+(3) 查看指定用户的权限信息
+rabbitmqctl  list_user_permissions  User
+(4)  清除用户的权限信息
+rabbitmqctl  clear_permissions  [-p VHostPath]  User
+
+    列举所有虚拟主机 rabbitmqctl list_vhosts
+    添加虚拟主机 rabbitmqctl add_vhost <vhost_name>
+    删除虚拟主机rabbitmqctl delete_vhost <vhost_name>
+    添加用户 add_user <username> <password>
+    设置用户标签 set_user_tags <username> <tag>  // Admin | Monitoring | Policymaker | Management | Impersonator | None
+     
+    设置权限 set_permissions [-p <vhost>] <user> <conf> <write> <read> 
+
+权限配置包括：配置(队列和交换机的创建和删除)、写(发布消息)、读(有关消息的任何操作，包括清除这个队列) 
+
+    conf:一个正则表达式match哪些配置资源能够被该用户访问。 
+    write:一个正则表达式match哪些配置资源能够被该用户读。 
+    read:一个正则表达式match哪些配置资源能够被该用户访问
+
+}
+
++++++++++++++redis++++++++++++++++++++
+配置完成后重新启动服务器
+{
+//三种命令样式
+sudo /etc/init.d/redis-server restart
+sudo service redis-server restart 
+sudo redis-server /etc/redis/redis.conf
+}
+远程连接redis-cli
+redis-cli -h 39.97.119.183
+
+
++++++++++++++elasticsearch++++++++++++++++++++
+log路径es用户权限问题
+chown -R es:es /home/logs
+chmod -R 777 /opt/elasticsearch-5.5.2
+报错：
+ERROR: [2] bootstrap checks failed
+[1]: max file descriptors [65535] for elasticsearch process is too low, increase to at least [65536]
+[2]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
+
+修改/etc/security/limits.conf在最后添加
+* soft nofile 65536
+* hard nofile 131072
+解决办法：
+1、切换到root用户修改配置sysctl.conf
+vi /etc/sysctl.conf 
+添加下面配置：
+vm.max_map_count=655360
+并执行命令：
+sysctl -p
+
++++++++++++++nginx++++++++++++++++++++
+ PCRE 作用是让 Nginx 支持 Rewrite 功能。
+
+1、下载 PCRE 安装包，下载地址： http://downloads.sourceforge.net/project/pcre/pcre/8.35/pcre-8.35.tar.gz
+[root@bogon src]# cd /usr/local/src/
+[root@bogon src]# wget http://downloads.sourceforge.net/project/pcre/pcre/8.35/pcre-8.35.tar.gz
+2、解压安装包:
+[root@bogon src]# tar zxvf pcre-8.35.tar.gz
+3、进入安装包目录
+[root@bogon src]# cd pcre-8.35
+4、编译安装 
+[root@bogon pcre-8.35]# ./configure
+[root@bogon pcre-8.35]# make && make install
+5、查看pcre版本
+[root@bogon pcre-8.35]# pcre-config --version
+nginx：
+ 1、下载 Nginx，下载地址：http://nginx.org/download/nginx-1.6.2.tar.gz
+[root@bogon src]# cd /usr/local/src/
+[root@bogon src]# wget http://nginx.org/download/nginx-1.6.2.tar.gz
+2、解压安装包
+[root@bogon src]# tar zxvf nginx-1.6.2.tar.gz
+3、进入安装包目录
+[root@bogon src]# cd nginx-1.6.2
+4、编译安装
+[root@bogon nginx-1.6.2]# ./configure --prefix=/usr/local/webserver/nginx --with-http_stub_status_module --with-http_ssl_module --with-pcre=/usr/local/src/pcre-8.35
+[root@bogon nginx-1.6.2]# make
+[root@bogon nginx-1.6.2]# make install
+5、查看nginx版本
+[root@bogon nginx-1.6.2]# /usr/local/webserver/nginx/sbin/nginx -v
+
+
+Nginx 启动命令如下：
+[root@bogon conf]# /usr/local/webserver/nginx/sbin/nginx
+ Nginx 常用的几个命令：
+/usr/local/webserver/nginx/sbin/nginx -s reload            # 重新载入配置文件
+/usr/local/webserver/nginx/sbin/nginx -s reopen            # 重启 Nginx
+/usr/local/webserver/nginx/sbin/nginx -s stop              # 停止 Nginx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

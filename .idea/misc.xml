@@ -6,6 +6,8 @@
         <option value="$PROJECT_DIR$/mysql_all/pom.xml" />
         <option value="$PROJECT_DIR$/redis/pom.xml" />
         <option value="$PROJECT_DIR$/mysql/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud/pom.xml" />
+        <option value="$PROJECT_DIR$/rabbitmq/pom.xml" />
       </list>
     </option>
   </component>
