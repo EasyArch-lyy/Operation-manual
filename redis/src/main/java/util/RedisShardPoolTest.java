@@ -39,8 +39,6 @@ public class RedisShardPoolTest {
         pool =new ShardedJedisPool(config, jdsInfoList);
      }
 
-       
-
     /**
      * @param args
      */

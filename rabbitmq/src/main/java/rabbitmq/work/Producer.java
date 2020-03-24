@@ -20,7 +20,7 @@ public class Producer {
         for (int i = 0; i < 50; i++) {
             String message = "" + i;
             channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
-            Thread.sleep(100 * i);
+            Thread.sleep(5000);
         }
         channel.close();
         connection.close();

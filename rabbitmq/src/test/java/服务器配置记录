@@ -68,7 +68,7 @@ rabbitmqctl  list_users
 无法登陆管理控制台，通常就是普通的生产者和消费者。
 了解了这些后，就可以根据需要给不同的用户设置不同的角色，以便按需管理。
 设置用户角色的命令为：
-rabbitmqctl  set_user_tags  User  Tag
+rabbitmqctl  set_user_tags  com.springcloud.bean.User  Tag
 User为用户名， Tag为角色名(对应于上面的administrator，monitoring，policymaker，management，或其他自定义名称)。
 也可以给同一用户设置多个角色，例如
 rabbitmqctl  set_user_tags  hncscwc  monitoring  policymaker
@@ -78,13 +78,13 @@ rabbitmqctl  set_user_tags  hncscwc  monitoring  policymaker
 
 相关命令为：
 (1) 设置用户权限
-rabbitmqctl  set_permissions  -p  VHostPath  User  ConfP  WriteP  ReadP
+rabbitmqctl  set_permissions  -p  VHostPath  com.springcloud.bean.User  ConfP  WriteP  ReadP
 (2) 查看(指定hostpath)所有用户的权限信息
 rabbitmqctl  list_permissions  [-p  VHostPath]
 (3) 查看指定用户的权限信息
-rabbitmqctl  list_user_permissions  User
+rabbitmqctl  list_user_permissions  com.springcloud.bean.User
 (4)  清除用户的权限信息
-rabbitmqctl  clear_permissions  [-p VHostPath]  User
+rabbitmqctl  clear_permissions  [-p VHostPath]  com.springcloud.bean.User
 
     列举所有虚拟主机 rabbitmqctl list_vhosts
     添加虚拟主机 rabbitmqctl add_vhost <vhost_name>

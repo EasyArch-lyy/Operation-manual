@@ -40,8 +40,6 @@ public class RedisJava {
 
     }
 
-
-
     /**
      * redis测试连接
      */
@@ -105,8 +103,8 @@ public class RedisJava {
         redisJava.KeyOperate();
 
     }
-    public void KeyOperate() {
 
+    public void KeyOperate() {
         System.out.println("======================key==========================");
         // 清空数据
         System.out.println("清空库中所有数据：" + jedis.flushDB());
@@ -146,7 +144,6 @@ public class RedisJava {
     }
 
     private void StringOperate() {
-
         System.out.println("======================String_1==========================");
         // 清空数据
         System.out.println("清空库中所有数据：" + jedis.flushDB());
@@ -222,7 +219,6 @@ public class RedisJava {
     }
 
     private void ListOperate() {
-
         System.out.println("======================list==========================");
         // 清空数据
         System.out.println("清空库中所有数据：" + jedis.flushDB());
