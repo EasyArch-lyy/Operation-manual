@@ -8,9 +8,6 @@
         <option value="$PROJECT_DIR$/mysql/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud/pom.xml" />
         <option value="$PROJECT_DIR$/rabbitmq/pom.xml" />
-        <option value="$PROJECT_DIR$/springcloud_user/pom.xml" />
-        <option value="$PROJECT_DIR$/springcloud_eureka/pom.xml" />
-        <option value="$PROJECT_DIR$/microservice-simple-provider-user/pom.xml" />
       </list>
     </option>
   </component>
