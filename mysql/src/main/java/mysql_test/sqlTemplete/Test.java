@@ -1,8 +1,12 @@
 package mysql_test.sqlTemplete;
 
 import java.sql.*;
+
 import static mysql_test.util.JdbcUtil.*;
 
+/**
+ * @author lyy
+ */
 public class Test {
 
     private Connection con= null;
@@ -60,27 +64,29 @@ public class Test {
         return i;
     }
 
-   /**
-    * 查询有多少页
-    * @param pageSize
-    * @return pageCount
-    */
-   @org.junit.Test
-    public void getPageCount(/*int pageSize*/) throws Exception {
+    /**
+     * 查询有多少页
+     *
+     * @param pageSize 每页的数据量
+     * @return pageCount
+     */
+    @org.junit.Test
+    public int getPageCount(int pageSize) throws Exception {
         try {
-            con=initConnection();
+            con = initConnection();
             String sql = "select count(*) from runoob_transcation_test";
             stmt = con.prepareStatement(sql);
-            rs=stmt.executeQuery(sql);
-//            rs.next();
-//            while (rs.next()) {
-                int rowsCount = rs.getInt(0);
-                int pageCount = (int) Math.ceil(1.0 * rowsCount / 10);//算出总共需要多少页
-                System.out.println(pageCount);
-//            }
-//            return pageCount;
+            rs = stmt.executeQuery(sql);
+            int rowsCount =0;
+            while (rs.next()){
+                rowsCount = rs.getInt(1);
+            }
+            //算出总共需要多少页
+            int pageCount = (int) Math.ceil(1.0 * rowsCount / pageSize);
+            System.out.println(pageCount);
+            return pageCount;
         } finally {
-//            con.close();
+            con.close();
         }
     }
 

@@ -1,25 +1,52 @@
 package util;
 
-import org.junit.Test;
 import redis.clients.jedis.*;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author lyy
  */
 public class RedisJava {
 
-    Jedis jedis = new Jedis("39.97.119.183");
+    Jedis jedis = null;
     JedisPoolConfig jedisPoolConfig = null;
-
     ShardedJedis shardedJedis =null;
     ShardedJedisPool jedisPool=null;
     List<JedisShardInfo> infoList=null;
+
+    /**
+     * 提供初始化方法
+     */
+    public static ShardedJedis getInit(){
+        JedisPoolConfig jedisPoolConfig = null;
+        ShardedJedisPool jedisPool=null;
+        ShardedJedis shardedJedis =null;
+        List<JedisShardInfo> infoList=null;
+//        Jedis jedis = new Jedis("39.97.119.183");
+        jedisPoolConfig = new JedisPoolConfig();
+        jedisPoolConfig.setMaxActive(500);
+        jedisPoolConfig.setMaxIdle(1);
+        jedisPoolConfig.setMaxWait(1000 * 10);
+        jedisPoolConfig.setTestOnBorrow(false);
+        jedisPoolConfig.setTestOnReturn(false);
+        //设置Redis信息
+        String host = "39.97.119.183";
+        JedisShardInfo shardInfo1 = new JedisShardInfo(host, 6379, 500);
+        JedisShardInfo shardInfo2 = new JedisShardInfo(host, 6380, 500);
+//        shardInfo2.setPassword("test123");
+        JedisShardInfo shardInfo3 = new JedisShardInfo(host, 6381, 500);
+        //初始化ShardedJedisPool
+        infoList = Arrays.asList(shardInfo1, shardInfo2, shardInfo3);
+        jedisPool = new ShardedJedisPool(jedisPoolConfig, infoList);
+        shardedJedis = jedisPool.getResource();
+        return shardedJedis;
+    }
+
     /**
      * 初始化redis配置
      */
     public void init() {
+
         jedis = new Jedis("39.97.119.183");
         jedisPoolConfig = new JedisPoolConfig();
         jedisPoolConfig.setMaxActive(500);
@@ -37,7 +64,6 @@ public class RedisJava {
         infoList = Arrays.asList(shardInfo1, shardInfo2, shardInfo3);
         jedisPool = new ShardedJedisPool(jedisPoolConfig, infoList);
         shardedJedis = jedisPool.getResource();
-
     }
 
     /**
@@ -110,8 +136,8 @@ public class RedisJava {
         System.out.println("清空库中所有数据：" + jedis.flushDB());
         // 判断key否存在
         System.out.println("判断key999键是否存在：" + shardedJedis.exists("key999"));
-        System.out.println("新增key001,value001键值对：" + shardedJedis.set("key001", "value001"));
-        System.out.println("判断key001是否存在：" + shardedJedis.exists("key001"));
+        System.out.println("新增testwww,value001键值对：" + shardedJedis.set("testwww", "value001"));
+        System.out.println("判断testwww是否存在：" + shardedJedis.exists("testwww"));
         // 输出系统中所有的key
         System.out.println("新增key002,value002键值对：" + shardedJedis.set("key002", "value002"));
         System.out.println("系统中所有键如下：");
@@ -125,18 +151,32 @@ public class RedisJava {
         System.out.println("系统中删除key002: " + jedis.del("key002"));
         System.out.println("判断key002是否存在：" + shardedJedis.exists("key002"));
         // 设置 key001的过期时间
-        System.out.println("设置 key001的过期时间为5秒:" + jedis.expire("key001", 5));
+        System.out.println("设置 testwww的过期时间为5秒:" + jedis.expire("testwww", 5));
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
         }
         // 查看某个key的剩余生存时间,单位【秒】.永久生存或者不存在的都返回-1
-        System.out.println("查看key001的剩余生存时间：" + jedis.ttl("key001"));
+        System.out.println("查看testwww的剩余生存时间：" + jedis.ttl("testwww"));
         // 移除某个key的生存时间
-        System.out.println("移除key001的生存时间：" + jedis.persist("key001"));
-        System.out.println("查看key001的剩余生存时间：" + jedis.ttl("key001"));
+        System.out.println("移除testwww的生存时间：" + jedis.persist("testwww"));
+        System.out.println("查看testwww的剩余生存时间：" + jedis.ttl("testwww"));
         // 查看key所储存的值的类型
-        System.out.println("查看key所储存的值的类型：" + jedis.type("key001"));
+        System.out.println("查看key所储存的值的类型：" + jedis.type("testwww"));
+
+        Client client1 = shardedJedis.getShard("testwww").getClient();
+        System.out.println("testwww:" + client1.getHost() + " and port is:" + client1.getPort());
+        Client client2 = shardedJedis.getShard("key002").getClient();
+        System.out.println("key002:" + client1.getHost() + " and port is:" + client1.getPort());
+////        Client client2 = jedis.getShard("redis").getClient();
+////        Client client3 = jedis.getShard("test").getClient();
+////        Client client4 = jedis.getShard("123456").getClient();
+////
+////        ////打印key在哪个server中
+////        System.out.println("redis  in server:" + client2.getHost() + " and port is:" + client2.getPort());
+////        System.out.println("test   in server:" + client3.getHost() + " and port is:" + client3.getPort());
+////        System.out.println("123456 in server:" + client4.getHost() + " and port is:" + client4.getPort());
+
         /*
          * 一些其他方法：1、修改键名：jedis.rename("key6", "key0");
          *             2、将当前db的key移动到给定的db当中：jedis.move("foo", 1)

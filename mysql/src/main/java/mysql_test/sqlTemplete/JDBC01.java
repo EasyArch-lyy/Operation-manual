@@ -132,11 +132,11 @@ public class JDBC01 {
     * @param pageNumber 第几页
     * @param pageCount  每页显示多少个数据
     */
-    public void selectUserByPage(int pageNumber,int pageCount) throws SQLException {
-
+    public void selectUserByPage(int pageNumber, int pageCount) throws SQLException {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
+            System.out.println(con);
             stmt = con.prepareStatement("select * from runoob_transcation_test limit ?,?");
             stmt.setInt(1, (pageNumber - 1) * pageCount);
             stmt.setInt(2, pageCount);
@@ -162,7 +162,8 @@ public class JDBC01 {
 
     public static void main(String[] args) throws SQLException  {
         //查询第四页，每页显示八行数据
-//        selectUserByPage(4,8);
+        JDBC01 jdbc01=new JDBC01();
+        jdbc01.selectUserByPage(1,1);
     }
 
 }

@@ -4,6 +4,9 @@ import java.sql.*;
 import java.util.*;
 import java.io.*;
  
+/**
+ * @author lyy
+ */
 public class JdbcUtil {
 
     public static final String DBDRIVER = "com.mysql.jdbc.Driver";
